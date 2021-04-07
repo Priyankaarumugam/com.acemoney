@@ -15,7 +15,7 @@ public class basics {
 	@Test
 	public void verifyTitle()
 	{
-		
+		System.out.println("Test1");
 	}
 	
 	@AfterTest
