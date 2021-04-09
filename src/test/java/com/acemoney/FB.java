@@ -1,18 +1,17 @@
 package com.acemoney;
 
-
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class bacsics1 
-{
-	WebDriver driver;
+public class FB {
+	
+WebDriver driver;
 	
 	@BeforeTest
 	public void setUp()
@@ -26,32 +25,17 @@ public class bacsics1
 		
 	}
 	
+	
 	@Test
-	public void verifySignup()
+	public void verifyTitle()
 	{
-		driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		
+		Assert.assertEquals(driver.getTitle(), "Facebook");
 	}
+
 	
-	@Test
-	public void verifyfirstname() 
+	@AfterTest
+	public void tearDown()
 	{
-	driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Priyanka");
-
+		driver.close();
 	}
-	
-	@Test
-    public void verifySurname()
-    {
-		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Arumugam");
-	}
-	
-	@AfterMethod
-    public void Teardown()
-    {
-    	driver.close();
-    }
-
-
-
 }
